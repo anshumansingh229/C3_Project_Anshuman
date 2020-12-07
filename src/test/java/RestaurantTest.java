@@ -14,6 +14,7 @@ import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -90,4 +91,30 @@ class RestaurantTest {
     }
 
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>Order Cost<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+    @Test
+    public void selecting_item_from_menu_should_return_expected_order_cost(){
+        restaurant.addToMenu("Sweet corn soup",119);
+        restaurant.addToMenu("Vegetable lasagne", 269);
+        List<String> selectedItems = new ArrayList<>();
+        selectedItems.add("Sweet corn soup");
+        selectedItems.add("Vegetable lasagne");
+        int orderCost = service.getOrderCost(selectedItems);
+        assertThat(orderCost, equalTo(388));
+    }
+
+    @Test
+    public void selecting_item_from_menu_should_return_unexpected_order_cost(){
+        restaurant.addToMenu("Sweet corn soup",119);
+        restaurant.addToMenu("Vegetable lasagne", 269);
+        List<String> selectedItems = new ArrayList<>();
+        selectedItems.add("Sweet corn soup");
+        selectedItems.add("Vegetable lasagne");
+        int orderCost = service.getOrderCost(selectedItems);
+        assertNotEquals(orderCost, 388);
+    }
+    //<<<<<<<<<<<<<<<<<<<<<<<Order Cost>>>>>>>>>>>>>>>>>>>>>
+
 }
