@@ -101,7 +101,7 @@ class RestaurantTest {
         List<String> selectedItems = new ArrayList<>();
         selectedItems.add("Sweet corn soup");
         selectedItems.add("Vegetable lasagne");
-        int orderCost = service.getOrderCost(selectedItems);
+        int orderCost = restaurant.getOrderCost(selectedItems);
         assertThat(orderCost, equalTo(388));
     }
 
@@ -112,7 +112,7 @@ class RestaurantTest {
         List<String> selectedItems = new ArrayList<>();
         selectedItems.add("Sweet corn soup");
         selectedItems.add("Vegetable lasagne");
-        int orderCost = service.getOrderCost(selectedItems);
+        int orderCost = restaurant.getOrderCost(selectedItems);
         assertNotEquals(orderCost, 388);
     }
     //<<<<<<<<<<<<<<<<<<<<<<<Order Cost>>>>>>>>>>>>>>>>>>>>>
