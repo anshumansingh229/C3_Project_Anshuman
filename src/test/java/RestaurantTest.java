@@ -113,7 +113,7 @@ class RestaurantTest {
         selectedItems.add("Sweet corn soup");
         selectedItems.add("Vegetable lasagne");
         int orderCost = restaurant.getOrderCost(selectedItems);
-        assertNotEquals(orderCost, 388);
+        assertNotEquals(orderCost, 400);
     }
     //<<<<<<<<<<<<<<<<<<<<<<<Order Cost>>>>>>>>>>>>>>>>>>>>>
 
