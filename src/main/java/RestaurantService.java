@@ -32,4 +32,16 @@ public class RestaurantService {
     public List<Restaurant> getRestaurants() {
         return restaurants;
     }
+
+
+    public boolean isRestaurantOpen(Restaurant restaurant){
+        LocalTime currentTime = restaurant.getCurrentTime();
+        System.out.println("Current Time is:"+ currentTime);
+        System.out.println("Restaurant open Time is:"+ restaurant.openingTime);
+        System.out.println("Restaurant close Time is:"+ restaurant.closingTime);
+        if(currentTime.isAfter(restaurant.openingTime) && currentTime.isBefore(restaurant.closingTime))
+            return  true;
+        else
+            return  false;
+    }
 }
